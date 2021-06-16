@@ -6,7 +6,7 @@ class Usuario:
         self.apellido = apellido
         self.email = email
         self.balance = 0
-        
+
 #METODOS
     def hacer_deposito(self,cantidad):
         self.balance += cantidad
@@ -23,7 +23,10 @@ class Usuario:
         return f"Usuario: {self.nombre} {self.apellido}, Saldo: {self.balance}"
 
     def transferir_dinero(self,cantidad,destinatario):
-        self.hacer_retiro(cantidad)
+
+        if self.hacer_retiro(cantidad) is not True:
+            return False
+
         destinatario.hacer_deposito(cantidad)
         return f"Se hizo un deposito de {cantidad} a {destinatario.nombre}, tu nuevo saldo es: {self.balance}"
 
