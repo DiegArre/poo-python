@@ -1,10 +1,13 @@
 class Usuario:
+
+#ATRIBUTOS
     def __init__(self,nombre,apellido,email):
         self.nombre = nombre
         self.apellido = apellido
         self.email = email
         self.balance = 0
-
+        
+#METODOS
     def hacer_deposito(self,cantidad):
         self.balance += cantidad
         return f"{self.nombre} {self.apellido} has hecho un abono de {cantidad}"
@@ -24,6 +27,7 @@ class Usuario:
         destinatario.hacer_deposito(cantidad)
         return f"Se hizo un deposito de {cantidad} a {destinatario.nombre}, tu nuevo saldo es: {self.balance}"
 
+#Creacion de las instancias
 Diego = Usuario("Diego","Arredondo","diego@gmail.com")
 Alonso = Usuario("Alonso","Arce","alonso@gmail.com")
 Maxi = Usuario("Maximiliano", "Gonzales", "maxi@gmail.com")
@@ -53,5 +57,6 @@ print(Maxi.mostrar_balance())
 print(Alonso.mostrar_balance())
 print(Diego.transferir_dinero(100, Alonso))
 print(Diego.mostrar_balance())
+print(Alonso.mostrar_balance())
 
 
